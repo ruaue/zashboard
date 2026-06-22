@@ -2,6 +2,20 @@
 
 # Changelog
 
+## [3.11.0](https://github.com/ruaue/zashboard/compare/v3.10.1...v3.11.0) (2026-06-22)
+
+
+### Features
+
+* add support for sing-box native backend and refactor proxy handling ([4e2f3b5](https://github.com/ruaue/zashboard/commit/4e2f3b5712b3e311a252e3dd95484bd6dda30b67))
+
+
+### Bug Fixes
+
+* enhance input and toggle styles for better user experience ([629a898](https://github.com/ruaue/zashboard/commit/629a8986432fb906e47ff24669290a9ffe754b9f))
+* prevent viewport panning on iOS by pinning scroll position ([953df88](https://github.com/ruaue/zashboard/commit/953df8811a04dc64b7c30b2898f3cfc5c6c24de1))
+* update dark-neutral theme colors for improved contrast and accessibility ([f2c8fa9](https://github.com/ruaue/zashboard/commit/f2c8fa919dabbcd69117a959a6ef7fa7048dee60))
+
 ## [3.10.1](https://github.com/Zephyruso/zashboard/compare/v3.10.0...v3.10.1) (2026-06-17)
 
 
