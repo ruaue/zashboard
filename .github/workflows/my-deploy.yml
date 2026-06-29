@@ -1,0 +1,58 @@
+name: Deploy (Fork Stable)
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false
+      matrix:
+        font:
+          - { key: all, suffix: '' }
+          - { key: cdn, suffix: '-cdn-fonts' }
+          - { key: firasans, suffix: '-firasans-only' }
+          - { key: misans, suffix: '-misans-only' }
+          - { key: pingfang, suffix: '-pingfang-only' }
+          - { key: sarasa, suffix: '-sarasa-only' }
+          - { key: none, suffix: '-no-fonts' }
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v3
+        with:
+          version: 9
+
+      - name: Install & Build 🔧
+        env:
+          FONT: ${{ matrix.font.key }}
+        run: |
+          pnpm install
+          pnpm run build
+          echo 'zash.zend.eu.org' > ./dist/CNAME
+
+      - name: Deploy to Pages 🚀
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
+          publish_branch: gh-pages${{ matrix.font.suffix }}
+          force_orphan: true
