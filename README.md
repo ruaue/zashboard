@@ -18,7 +18,7 @@ Browser support
 
 You can access the online zashboard at the following link:
 
-- [Online zashboard](http://board.zash.run.place)
+- [Online zashboard](http://zash.zend.eu.org)
 
 ## **Download**
 
