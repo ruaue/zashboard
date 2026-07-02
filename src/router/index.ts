@@ -105,7 +105,7 @@ router.beforeEach((to, from) => {
   }
 
   if (!activeBackend.value && to.name !== ROUTE_NAME.setup) {
-    router.push({ name: ROUTE_NAME.setup })
+    router.push({ name: ROUTE_NAME.setup, query: { setupMode: 'manual' } })
     return
   }
 
