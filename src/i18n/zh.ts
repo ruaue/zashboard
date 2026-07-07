@@ -412,6 +412,8 @@ const zh: LANG_MESSAGE = {
   uploadSettingsIconReflectListRemoved:
     '自定义图标数据过长，上传时已自动移除这部分内容，请精简后重试。',
   syncSettingsSuccess: '设置同步成功',
+  syncSettingsConfirm: '后端存储的设置将覆盖以下本地设置:\n\n{keys}\n\n是否应用?',
+  importSettingsConfirm: '导入的设置将覆盖以下本地设置:\n\n{keys}\n\n是否应用?',
   deleteUploadedSettingsSuccess: '已上传设置删除成功',
   deleteUploadedSettingsConfirm: '确定要删除后端上已上传的设置吗？此操作不可撤销。',
   upgradeSuccess: '升级成功',

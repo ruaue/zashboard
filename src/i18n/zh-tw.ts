@@ -412,6 +412,8 @@ const zhTW: LANG_MESSAGE = {
   uploadSettingsIconReflectListRemoved:
     '自訂圖示資料過長，上傳時已自動移除這部分內容，請精簡後再試。',
   syncSettingsSuccess: '設定同步成功',
+  syncSettingsConfirm: '後端儲存的設定將覆蓋以下本地設定:\n\n{keys}\n\n是否套用?',
+  importSettingsConfirm: '匯入的設定將覆蓋以下本地設定:\n\n{keys}\n\n是否套用?',
   deleteUploadedSettingsSuccess: '已上傳設定刪除成功',
   deleteUploadedSettingsConfirm: '確定要刪除後端上已上傳的設定嗎？此操作無法復原。',
   upgradeSuccess: '升級成功',

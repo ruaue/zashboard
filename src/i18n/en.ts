@@ -418,6 +418,10 @@ const en = {
   uploadSettingsIconReflectListRemoved:
     'Custom icon data was too large and has been removed during upload. Please reduce it and try again.',
   syncSettingsSuccess: 'Settings synced successfully',
+  syncSettingsConfirm:
+    'The backend has stored settings that will override the following local settings:\n\n{keys}\n\nDo you want to apply them?',
+  importSettingsConfirm:
+    'The imported settings will override the following local settings:\n\n{keys}\n\nDo you want to apply them?',
   deleteUploadedSettingsSuccess: 'Uploaded settings deleted successfully',
   deleteUploadedSettingsConfirm:
     'Are you sure you want to delete the uploaded settings on the backend? This action cannot be undone.',

@@ -129,7 +129,7 @@ export default defineComponent({
                   </div>
                   <input
                     type="checkbox"
-                    class="toggle toggle-sm"
+                    class="toggle"
                     v-model={quickFilterEnabled.value}
                   />
                 </div>

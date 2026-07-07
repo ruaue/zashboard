@@ -238,7 +238,7 @@ const importSettingsFromFile = () => {
 }
 const importSettingsFromUrlHandler = async () => {
   dashboardSettingsDialogShow.value = false
-  await importSettingsFromUrl(true)
+  await importSettingsFromUrl({ force: true })
 }
 
 const handlerClickUploadSettings = async () => {
