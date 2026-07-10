@@ -5,7 +5,7 @@
     :no-padding="true"
     box-class="max-w-160"
   >
-    <div class="flex max-h-[70dvh] flex-col overflow-hidden">
+    <div class="flex h-[70dvh] max-h-142 flex-col overflow-hidden">
       <div class="shrink-0 p-3 pb-0">
         <ProxyChainPath
           :proxy="proxyGroupChainTarget"

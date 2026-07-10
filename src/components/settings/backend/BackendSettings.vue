@@ -48,72 +48,127 @@
           :setting-key="k.actions"
           class="absolute top-2 left-2 z-10"
         />
-        <div class="grid grid-cols-1 gap-2 px-4 py-3 md:grid-cols-2">
+        <div>
           <template v-if="!isSingBoxCore || displayAllFeatures">
-            <button
+            <div
               v-if="!activeBackend?.disableUpgradeCore"
-              class="btn btn-neutral btn-sm"
-              @click="showUpgradeCoreModal = true"
+              class="setting-item"
             >
-              {{ $t('upgradeCore') }}
-            </button>
-            <button
-              class="btn btn-sm"
-              @click="handlerClickRestartCore"
-            >
-              <span
-                v-if="isCoreRestarting"
-                class="loading loading-spinner loading-md"
-              ></span>
-              {{ $t('restartCore') }}
-            </button>
-            <button
-              class="btn btn-sm"
-              @click="handlerClickReloadConfigs"
-            >
-              <span
-                v-if="isConfigReloading"
-                class="loading loading-spinner loading-md"
-              ></span>
-              {{ $t('reloadConfigs') }}
-            </button>
-            <button
+              <div class="setting-item-label">
+                {{ $t('upgradeCore') }}
+              </div>
+              <button
+                class="btn btn-neutral btn-sm"
+                @click="showUpgradeCoreModal = true"
+              >
+                <ArrowUpCircleIcon class="h-4 w-4" />
+              </button>
+            </div>
+            <div class="setting-item">
+              <div class="setting-item-label">
+                {{ $t('restartCore') }}
+              </div>
+              <button
+                class="btn btn-sm"
+                @click="handlerClickRestartCore"
+              >
+                <span
+                  v-if="isCoreRestarting"
+                  class="loading loading-spinner h-4 w-4"
+                ></span>
+                <ArrowPathRoundedSquareIcon
+                  v-else
+                  class="h-4 w-4"
+                />
+              </button>
+            </div>
+            <div class="setting-item">
+              <div class="setting-item-label">
+                {{ $t('reloadConfigs') }}
+              </div>
+              <button
+                class="btn btn-sm"
+                @click="handlerClickReloadConfigs"
+              >
+                <span
+                  v-if="isConfigReloading"
+                  class="loading loading-spinner h-4 w-4"
+                ></span>
+                <ArrowPathIcon
+                  v-else
+                  class="h-4 w-4"
+                />
+              </button>
+            </div>
+            <div
               v-if="!isSingBoxCore"
-              class="btn btn-sm"
-              @click="showUpdateConfigModal = true"
+              class="setting-item"
             >
-              {{ $t('updateConfigs') }}
-            </button>
+              <div class="setting-item-label">
+                {{ $t('updateConfigs') }}
+              </div>
+              <button
+                class="btn btn-sm"
+                @click="showUpdateConfigModal = true"
+              >
+                <PencilSquareIcon class="h-4 w-4" />
+              </button>
+            </div>
+            <div class="setting-item">
+              <div class="setting-item-label">
+                {{ $t('updateGeoDatabase') }}
+              </div>
+              <button
+                class="btn btn-sm"
+                @click="handlerClickUpdateGeo"
+              >
+                <span
+                  v-if="isGeoUpdating"
+                  class="loading loading-spinner h-4 w-4"
+                ></span>
+                <ArrowDownTrayIcon
+                  v-else
+                  class="h-4 w-4"
+                />
+              </button>
+            </div>
+          </template>
+          <div class="setting-item">
+            <div class="setting-item-label">
+              {{ $t('flushDNSCache') }}
+            </div>
             <button
               class="btn btn-sm"
-              @click="handlerClickUpdateGeo"
+              @click="handleFlushDNSCache"
             >
-              <span
-                v-if="isGeoUpdating"
-                class="loading loading-spinner loading-md"
-              ></span>
-              {{ $t('updateGeoDatabase') }}
+              <TrashIcon class="h-4 w-4" />
             </button>
-          </template>
-          <button
-            class="btn btn-sm"
-            @click="handleFlushDNSCache"
-          >
-            {{ $t('flushDNSCache') }}
-          </button>
-          <button
-            class="btn btn-sm"
-            @click="handleFlushFakeIP"
-          >
-            {{ $t('flushFakeIP') }}
-          </button>
-          <button
+          </div>
+          <div class="setting-item">
+            <div class="setting-item-label">
+              {{ $t('flushFakeIP') }}
+            </div>
+            <button
+              class="btn btn-sm"
+              @click="handleFlushFakeIP"
+            >
+              <TrashIcon class="h-4 w-4" />
+            </button>
+          </div>
+          <div
             v-if="hasSmartGroup"
-            class="btn btn-sm"
-            @click="handleFlushSmartWeights"
+            class="setting-item"
           >
-            {{ $t('flushSmartWeights') }}
-          </button>
+            <div class="setting-item-label">
+              {{ $t('flushSmartWeights') }}
+            </div>
+            <button
+              class="btn btn-sm"
+              @click="handleFlushSmartWeights"
+            >
+              <TrashIcon class="h-4 w-4" />
+            </button>
+          </div>
         </div>
       </div>
 
@@ -239,6 +294,14 @@ import { hasSmartGroup } from '@/assembly/proxies'
 import { fetchRules } from '@/assembly/rules'
 import { autoUpgradeCore, checkUpgradeCore, displayAllFeatures } from '@/store/settings'
 import { activeBackend } from '@/store/setup'
+import {
+  ArrowDownTrayIcon,
+  ArrowPathIcon,
+  ArrowPathRoundedSquareIcon,
+  ArrowUpCircleIcon,
+  PencilSquareIcon,
+  TrashIcon,
+} from '@heroicons/vue/24/outline'
 import { computed, ref } from 'vue'
 import UpdateConfigModal from './UpdateConfigModal.vue'
 import UpgradeCoreModal from './UpgradeCoreModal.vue'
