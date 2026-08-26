@@ -1,0 +1,1 @@
+import{h as e,m as t}from"./index-xc2E_gwd.js";var n=async()=>{e.value=[],t.value=[]};export{n as fetchRules};
